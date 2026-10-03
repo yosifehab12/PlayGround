@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Minecraft 3D — Phone & Tablet Edition</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game-root"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="crosshair">+</div>
+  <div id="block-highlight-name"></div>
+
+  <div id="topbar">
+    <div id="stats">60 FPS · 0,0,0</div>
+    <div id="top-btns">
+      <button id="btn-fly" class="chip" title="Toggle fly">✈️ Fly</button>
+      <button id="btn-day" class="chip" title="Day/night">☀️</button>
+      <button id="btn-save" class="chip" title="Save">💾</button>
+      <button id="btn-menu" class="chip" title="Menu">☰</button>
+    </div>
+  </div>
+
+  <div id="hotbar"></div>
+
+  <!-- Touch controls -->
+  <div id="touch-ui">
+    <div id="joystick"><div id="stick"></div></div>
+    <div id="action-btns">
+      <button id="btn-jump" class="abtn">⬆<span>JUMP</span></button>
+      <div class="arow">
+        <button id="btn-break" class="abtn danger">⛏<span>BREAK</span></button>
+        <button id="btn-place" class="abtn good">🧱<span>PLACE</span></button>
+      </div>
+      <button id="btn-down" class="abtn hidden">⬇<span>DOWN</span></button>
+    </div>
+  </div>
+  <div id="look-hint">Drag right side to look around</div>
+</div>
+
+<!-- Start / menu overlay -->
+<div id="menu">
+  <div class="card">
+    <h1>⛏️ Minecraft 3D</h1>
+    <p class="sub">Phone · Tablet · Desktop — voxel building</p>
+    <div class="row">
+      <label>World seed <input id="seed" type="number" value="1337"></label>
+      <button id="btn-new" class="chip">🎲 Random</button>
+    </div>
+    <button id="btn-play">▶ PLAY</button>
+    <div class="help">
+      <div><b>📱 Mobile:</b> left stick = move · drag right = look · ⛏ / 🧱 = break / place</div>
+      <div><b>🖥️ Desktop:</b> WASD move · mouse look (click to lock) · LMB break · RMB place · Space jump · F fly · 1–9 blocks</div>
+    </div>
+    <div class="row small">
+      <button id="btn-continue" class="chip hidden">↩ Resume</button>
+      <button id="btn-reset" class="chip">🗑 New world</button>
+    </div>
+    <p class="tiny">64×64 world · trees · water · caves-ish hills · day/night · saves on device · no internet needed after load</p>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="minecraft.js"></script>
+</body>
+</html>
